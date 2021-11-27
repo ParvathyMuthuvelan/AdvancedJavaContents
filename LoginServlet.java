@@ -41,17 +41,19 @@ public class LoginServlet extends HttpServlet {
 		if(uname.equals("admin") && password.equals("admin@123"))
 		{
 			out.println("<h3>Welcome to our site</h3>");
-			dispatcher=request.getRequestDispatcher("WelcomeServlet");
-			//dispatcher.forward(request, response);
+			//dispatcher=request.getRequestDispatcher("WelcomeServlet");
 			request.setAttribute("username", uname);
-			dispatcher.include(request, response);
+			//dispatcher.include(request, response);
+			//dispatcher.forward(request, response);
+			response.sendRedirect("HomePageServlet");
 		}
 		else
 		{
 			out.println("Invalid Login. Try Again........");
 			dispatcher=request.getRequestDispatcher("Login.html");
 			//dispatcher.forward(request, response);
-			dispatcher.include(request, response);
+			//dispatcher.include(request, response);
+			response.sendRedirect("Login.html");
 		}
 	}
 
