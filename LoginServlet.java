@@ -3,12 +3,17 @@ package com.training.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/* request-ServletRequest
+ * session-HttpSession
+ * application-ServletContext
+ */
 /**
  * Servlet implementation class LoginServlet
  */
@@ -32,13 +37,21 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String uname=request.getParameter("username");
 		String password=request.getParameter("password");
+		RequestDispatcher dispatcher=null;
 		if(uname.equals("admin") && password.equals("admin@123"))
 		{
 			out.println("<h3>Welcome to our site</h3>");
+			dispatcher=request.getRequestDispatcher("WelcomeServlet");
+			//dispatcher.forward(request, response);
+			request.setAttribute("username", uname);
+			dispatcher.include(request, response);
 		}
 		else
 		{
 			out.println("Invalid Login. Try Again........");
+			dispatcher=request.getRequestDispatcher("Login.html");
+			//dispatcher.forward(request, response);
+			dispatcher.include(request, response);
 		}
 	}
 
