@@ -1,0 +1,35 @@
+Servlet Filters are Java classes that can be used in Servlet Programming for the following purposes −
+
+To intercept requests from a client before they access a resource at back end.
+
+To manipulate responses from server before they are sent back to the client.
+
+client-->(filter's preprocessing)request-->servlet(process the request)
+client<--(filter's postprocessing)response<--servlet
+
+client-->request-->filter1-->filter2-->servlet--(process the request)
+client<--response<--filter1<--filter2<--servlet
+
+There are various types of filters suggested by the specifications −
+
+Authentication Filters.
+Data compression Filters.
+Encryption Filters.
+Filters that trigger resource access events.
+Image Conversion Filters.
+Logging and Auditing Filters.
+
+public void doFilter (ServletRequest, ServletResponse, FilterChain)
+
+This method is called by the container each time a request/response pair is passed through the chain due to a client request for a resource at the end of the chain.
+	
+public void init(FilterConfig filterConfig)
+
+This method is called by the web container to indicate to a filter that it is being placed into service.
+
+
+	
+public void destroy()
+
+This method is called by the web container to indicate to a filter that it is being taken out of service.
+
