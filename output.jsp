@@ -14,11 +14,22 @@ Session Scope: ${sessionScope.count}<br>
 Request Scope: ${requestScope.count}<br>
 <h2>Registration Details</h2>
 First Name : ${param.fname}<br>
+${param["fname"]}<br>
 Last Name : ${param.lname}<br>
 Email : ${param.email}<br>
 <h2>Bean details</h2>
 First Name : ${userBean.firstName}<br>
 Last Name : ${userBean.lastName}<br>
 Email: ${userBean.email}<br>
+${1 lt 2} <br>
+${1<2} <br>
+${2 ge 2} <br>
+${2 gt 2}<br>
+${1+2+3}<br>
+${param["fname"]}<br>
+${list[0]}<br>
+${list[1+2]}<br>
+${map.C}<br>
+${map['M']}<br>
 </body>
 </html>

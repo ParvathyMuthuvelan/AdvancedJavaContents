@@ -1,6 +1,10 @@
 package com.training.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -49,6 +53,16 @@ public class ELDemoServlet extends HttpServlet {
 		user.setLastName(request.getParameter("lname"));
 		user.setEmail(request.getParameter("email"));
 		request.setAttribute("userBean", user);
+		List<String> slist=new ArrayList<>();
+		slist.add("one");
+		slist.add("two");
+		slist.add("three");
+		slist.add("four");
+		Map<String,String> stateMap=new HashMap<>();
+		stateMap.put("C","Chennai");
+		stateMap.put("M", "Mumbai");
+		request.setAttribute("map",stateMap);
+		request.setAttribute("list", slist);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("output.jsp");
 		dispatcher.forward(request, response);
 
