@@ -32,11 +32,23 @@ public class EditUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	int userId=Integer.parseInt(request.getParameter("id"));
+	String action=request.getParameter("action");
 	UserBo userBo =new UserBo();
+	boolean result=true;
+	RequestDispatcher dispatcher=null;
+	if(action.equals("edit"))
+	{
 	User user=userBo.findUser(userId);
 	request.setAttribute("usr", user);
-	RequestDispatcher dispatcher=request.getRequestDispatcher("editUser.jsp");
+	dispatcher=request.getRequestDispatcher("editUser.jsp");
 	dispatcher.forward(request, response);
+	}
+	else if(action.equals("delete"))
+	{
+		result=userBo.deleteUser(userId);
+		dispatcher=request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
+	}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User user=new User();
