@@ -1,0 +1,17 @@
+mvn archetype:generate -DgroupId=com.training -DartifactId=MavenProject   
+-DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false  
+
+Compile the Maven Java Project
+To compile the project, go to the project directory, cd projectname
+
+for example: C:\Users\name\Projectname and write the following command on the command prompt:
+
+mvn clean compile  
+
+to package and create jar file,
+
+mvn package
+
+to run the java class,
+
+c:\users\username\projectname\java -classpath target\MavenProject-1.0-SNAPSHOT.jar;.; com.training.App
