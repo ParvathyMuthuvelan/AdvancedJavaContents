@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+   <project name="Hello World Project" default="info">
+<!--<property name="sitename" value="www.google.com"/>-->
+ <property file="build.properties"/>
+
+   <target name="info">
+ <echo>Hello World - Welcome to Apache Ant!</echo>
+ <echo>Apache Ant version is ${ant.version} - You are at ${sitename} </echo>
+   </target>
+
+    <target name="copy-file">  
+        <copy file = "abc.txt" tofile = "abccopy.txt"></copy>  
+    </target>  
+
+<target name="run">  
+        <junit>  
+                <test name="com.junit.TestCase"/>  
+        </junit>  
+
+    </target>  
+</project>
